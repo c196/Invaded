@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invaded</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if user_signed_in? %>
+<nav>
+    <p> Hello, <%= current_user.user_name %> </p>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+</nav>
+<% end %>
+
+
+
+
+<%= yield %>
+
+</body>
+</html>
