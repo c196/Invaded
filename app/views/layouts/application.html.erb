@@ -3,18 +3,35 @@
 <head>
   <title>Invaded</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
 
   <% if user_signed_in? %>
 <nav>
-    <p> Hello, <%= current_user.user_name %> </p>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  <div class="nav">
+
+    <div class="navLeft">
+      <% if current_page?(:controller => 'play', :action => 'hub')%>
+<a href="/"><i class="material-icons">power_settings_new</i></a>
+  <% else %><a href="javascript:history.back()"><i class="material-icons">fiber_manual_recordarrow_back</i></a><% end %>
+</div>
+
+<div class="navCenter">
+  <a href="javascript:history.back()">Hello,  <%= current_user.user_name %></a>
+</div>
+<div class="navRight">
+    <a href="javascript:history.back()"><i class="material-icons">home</i></a>
+</div>
+  </div>
 </nav>
 <% end %>
+
+
 
 
 

@@ -1,26 +1,30 @@
+<div class="devise">
+<div class="centerContent">
+  <div class="centered">
+    <div class="loginBox">
+      <div class="centerText">
 <h2>Log in</h2>
+<p>Sign in to play</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.email_field :email, autofocus: true, :class => 'deviseInput', placeholder: "Email" %>
+
+
+
+    <%= f.password_field :password, autocomplete: "off", :class => 'deviseInput', placeholder: "Password" %>
+
+
+
+<div class="centerText">
+    <%= f.submit "Log in", :class => 'deviseLogin' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>

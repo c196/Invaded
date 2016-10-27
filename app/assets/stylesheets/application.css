@@ -10,6 +10,212 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
  *= require_self
  */
+
+  @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600');
+
+ /* Reset */
+
+ 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+ 		margin: 0;
+ 		padding: 0;
+ 		Ich bin ein dicker fetter gummibär
+ 		border: 0;
+ 		font-size: 100%;
+ 		font: inherit;
+ 		vertical-align: baseline;
+ 	}
+
+ 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+ 		display: block;
+ 	}
+
+ 	body {
+ 		line-height: 1;
+ 	}
+
+ 	ol, ul {
+ 		list-style: none;
+ 	}
+
+ 	blockquote, q {
+ 		quotes: none;
+ 	}
+
+ 	blockquote:before, blockquote:after, q:before, q:after {
+ 		content: '';
+ 		content: none;
+ 	}
+
+ 	table {
+ 		border-collapse: collapse;
+ 		border-spacing: 0;
+ 	}
+
+ 	body {
+ 		-webkit-text-size-adjust: none;
+ 	}
+
+  *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+
+/* default classes */
+
+body {
+  -ms-overflow-style: scrollbar;
+  background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.centerContent {
+  width: 100%;
+  height: 100vh;
+  display: table;
+}
+
+.centered {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.centerText {
+  text-align: center;
+}
+
+/* devise classes */
+
+.devise h2 {
+  color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    line-height: 1em;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    font-size: 1.35em;
+line-height: 1.2em;
+}
+
+.devise p {
+  color: #ffffff;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    line-height: 1em;
+    margin: 0 0 2em 0;
+}
+
+.devise .loginBox {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.6);
+  text-align: left;
+  padding: 50px;
+  color: white;
+}
+
+.devise a {
+  -moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  -ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 100;
+  line-height: 1.5em;
+
+}
+
+.devise .deviseInput {
+  -moz-appearance: none;
+-webkit-appearance: none;
+-ms-appearance: none;
+appearance: none;
+background: rgba(207, 201, 214, 0.035);
+border-radius: 8px;
+border: none;
+border: solid 1px grey;
+color: inherit;
+display: block;
+outline: 0;
+padding: 0 1.5em;
+font-size: 100%;
+text-decoration: none;
+width: calc(100% - 0em);
+height: 2.75em;
+margin: 15px 0 15px 0;
+font-weight: 100;
+}
+
+.devise .deviseLogin {
+    background-color: transparent;
+    border-radius: 8px;
+    border: solid 1px #4c4b4d !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 300;
+    height: 3.5em;
+    letter-spacing: 0.25em;
+    line-height: 3.35em;
+    padding: 0 3em;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0.25em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 15px 0 10px 0;
+}
+
+/* Navigation ********************* */
+
+nav .nav {
+  width: 100%;
+  background-color: #333333;
+  height: auto;
+  padding: 20px 10px 20px 10px;
+  border-bottom: 1px solid white;
+  border-top: 1px solid #e3e3e3;
+  position: fixed;
+  bottom: 0;
+  color: white;
+}
+
+nav a {
+  color: white;
+
+}
+
+nav .navLeft {
+  width: 10%;
+  float: left;
+
+
+}
+nav .navCenter {
+  width: 80%;
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav .navRight {
+  width: 10%;
+  float: left;
+  text-align: right;
+
+}

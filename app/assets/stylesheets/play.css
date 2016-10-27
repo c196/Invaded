@@ -1,0 +1,40 @@
+.hub {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.hub .grid-icons {
+  width: 100%;
+  font-size: 0;
+}
+
+.hub .grid-icons li {
+  width: 50vw;
+  border-bottom: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+  display: inline-block;
+  height: 50vw;
+}
+
+.hub .grid-icons li .outer{
+  font-size: 16px;
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.hub .grid-icons li .inner{
+  display: table-cell;
+  vertical-align: middle;
+  color: #606060;
+  font-weight: bold;
+}
+
+.hub .grid-icons i {
+  color: #cdcdcd;
+  font-size: 50px;
+  margin-bottom: 15px;
+}

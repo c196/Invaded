@@ -1,34 +1,45 @@
+<div class="devise">
+<div class="centerContent">
+  <div class="centered">
+    <div class="loginBox">
+      <div class="centerText">
 <h2>Sign up</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name, autofocus: true %>
+
+    <%= f.text_field :user_name, autofocus: true , :class => 'deviseInput', placeholder: "Username" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email%>
+
+    <%= f.email_field :email, :class => 'deviseInput', placeholder: "Email"%>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+
+    <%= f.password_field :password, autocomplete: "off", :class => 'deviseInput', placeholder: "Password (6 characters minimum)" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'deviseInput', placeholder: "Repeat"%>
   </div>
+
+    <div class="centerText">
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => 'deviseLogin' %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>
