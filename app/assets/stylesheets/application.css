@@ -119,6 +119,12 @@ body {
   color: white;
 }
 
+	@media screen and (max-width: 980px) {
+    .devise .loginBox {
+      padding: 10px;
+    }
+  }
+
 .devise a {
   -moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   -webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
