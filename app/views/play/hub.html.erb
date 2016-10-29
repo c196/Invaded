@@ -42,10 +42,16 @@
         </li>
         <li>
           <div class="outer">
-            <div class="inner">
+            <div class="inner" id="fullscreen">
               <i class="material-icons">school</i>
                 <h3>Tutorial</h3>
             </div>
+            <script>
+            var fullscreen = document.getElementById('fullscreen');
+            fullscreen.addEventListener('click', function(){
+              document.body.webkitRequestFullscreen();
+            });
+            </script>
           </div>
         </li>
     </ul>
