@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'explore/map'
+
   resources :invaders
   get 'authenticate/index'
 
   get 'play/hub'
+  get 'invaders/map'
   get 'invaders/new'
 
   devise_for :users, controllers: { registrations: "registrations"}

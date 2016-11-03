@@ -1,12 +1,14 @@
 <div class="hub">
     <ul class="grid-icons">
         <li>
+          <%= link_to '/explore/map' do %>
           <div class="outer">
             <div class="inner">
                 <i class="material-icons">explore</i>
                 <h3>Explore</h3>
             </div>
           </div>
+          <% end %>
         </li>
         <li>
           <%= link_to '/invaders/new' do %>
@@ -48,20 +50,7 @@
               <i class="material-icons">school</i>
                 <h3>Tutorial</h3>
             </div>
-            <script>
-            var fullscreen = document.getElementById('fullscreen');
-            fullscreen.addEventListener('click', function(){
-              if(document.body.requestFullscreen) {
-    document.body.requestFullscreen();
-  } else if(document.body.mozRequestFullScreen) {
-    document.body.mozRequestFullScreen();
-  } else if(document.body.webkitRequestFullscreen) {
-    document.body.webkitRequestFullscreen();
-  } else if(document.body.msRequestFullscreen) {
-    document.body.msRequestFullscreen();
-  }
-            });
-            </script>
+
           </div>
         </li>
     </ul>

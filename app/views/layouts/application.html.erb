@@ -4,8 +4,8 @@
   <title>Invaded</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
+  <%= javascript_include_tag "application", params[:controller] %>
 
-<%= javascript_include_tag "application", params[:controller], :media => "all" %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -23,7 +23,7 @@
 </div>
 
 <div class="navCenter">
-  <a href="javascript:history.back()">Hello,  <%= current_user.user_name %></a>
+  <p id="fullscreen">Hello,  <%= current_user.user_name %></p>
 </div>
 <div class="navRight">
     <a href="/play/hub"><i class="material-icons">home</i></a>

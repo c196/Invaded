@@ -1,0 +1,48 @@
+<div id="exploreMap" class="exploreMap"></div>
+<script>
+
+    function initMap() {
+        var invaderList = [];
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('exploreMap'), {
+            center: {
+                lat: 46.9425775,
+                lng: 7.4524558
+            },
+            scrollwheel: false,
+            zoom: 12
+        });
+
+        $.getJSON('/invaders.json', function (data) {
+            console.log(data);
+            $.each(data, function (i, invader) {
+                invaderList[i] = [];
+                var acc = invader['accuracy'];
+                console.log(acc);
+                console.log(invader['location']);
+                var LatLngSplit = invader['location'].split(','),
+                    lat = LatLngSplit[0],
+                    lng = LatLngSplit[1];
+                console.log(lat + "long:" + lng);
+                myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+                var marker = new google.maps.Marker({position: myLatLng, map: map, title: 'Hello World!'});
+
+                var cityCircle = new google.maps.Circle({
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0,
+                  strokeWeight: 2,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.35,
+                  map: map,
+                  center: myLatLng,
+                  radius: 47
+    });
+
+            });
+
+        });
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApOWJ0BYbS9dOM2PK0vTJgxA4xVDRlnmk&callback=initMap" async defer></script>

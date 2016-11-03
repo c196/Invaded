@@ -23,8 +23,12 @@
     <%= f.text_field :hints, :class => 'formInput', placeholder: "Hints" %>
   </div>
   <div class="field">
-    <input type="button" class="formBtn" value="Get Location">
-    <%= f.text_field :location, :class => 'hidden' %>
+    <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="getLocation()">
+    <%= f.text_field :location,:id => "locationField", :class => 'hidden' %>
+
+  </div>
+  <div class="field">
+    <%= f.text_field :accuracy,:id => "locationAccuracy", :class => 'hidden' %>
   </div>
   <div class="field">
     <%= f.number_field :users_id, :class => 'hidden'  %>

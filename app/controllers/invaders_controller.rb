@@ -13,6 +13,7 @@ class InvadersController < ApplicationController
   def show
   end
 
+
   # GET /invaders/new
   def new
     @invader = Invader.new
@@ -26,6 +27,7 @@ class InvadersController < ApplicationController
   # POST /invaders.json
   def create
     @invader = Invader.new(invader_params)
+    @invader = Invader.create(invader_params.merge!(users_id: current_user.id))
 
     respond_to do |format|
       if @invader.save
@@ -70,6 +72,6 @@ class InvadersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invader_params
-      params.require(:invader).permit(:name, :description, :hints, :location, :users_id, :image)
+      params.require(:invader).permit(:name, :description, :hints, :location, :users_id, :image, :accuracy)
     end
 end
