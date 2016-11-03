@@ -1,0 +1,1 @@
+json.array! @invaders, partial: 'invaders/invader', as: :invader

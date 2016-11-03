@@ -9,12 +9,14 @@
           </div>
         </li>
         <li>
+          <%= link_to '/invaders/new' do %>
           <div class="outer">
             <div class="inner">
                 <i class="material-icons">add_location</i>
                 <h3>Add an Invader</h3>
             </div>
           </div>
+        <% end %>
         </li>
         <li>
           <div class="outer">
@@ -49,7 +51,15 @@
             <script>
             var fullscreen = document.getElementById('fullscreen');
             fullscreen.addEventListener('click', function(){
-              document.body.webkitRequestFullscreen();
+              if(document.body.requestFullscreen) {
+    document.body.requestFullscreen();
+  } else if(document.body.mozRequestFullScreen) {
+    document.body.mozRequestFullScreen();
+  } else if(document.body.webkitRequestFullscreen) {
+    document.body.webkitRequestFullscreen();
+  } else if(document.body.msRequestFullscreen) {
+    document.body.msRequestFullscreen();
+  }
             });
             </script>
           </div>

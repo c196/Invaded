@@ -1,0 +1,18 @@
+<%= form_for(@invader) do |f| %>
+  <% if @invader.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invader.errors.count, "error") %> prohibited this invader from being saved:</h2>
+
+      <ul>
+      <% @invader.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    
+    <%= f.submit %>
+  </div>
+<% end %>

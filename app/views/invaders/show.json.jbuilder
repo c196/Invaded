@@ -1,0 +1,1 @@
+json.partial! "invaders/invader", invader: @invader
