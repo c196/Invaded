@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103093705) do
+ActiveRecord::Schema.define(version: 20161103121901) do
 
   create_table "invaders", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "location",   limit: 255
-    t.integer  "users_id",   limit: 4
-    t.string   "image",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "hints",       limit: 255
+    t.string   "location",    limit: 255
+    t.integer  "users_id",    limit: 4
+    t.string   "image",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

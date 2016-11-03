@@ -2,12 +2,16 @@
 
 one:
   name: MyString
+  description: MyString
+  hints: MyString
   location: MyString
   users_id: 1
   image: MyString
 
 two:
   name: MyString
+  description: MyString
+  hints: MyString
   location: MyString
   users_id: 1
   image: MyString

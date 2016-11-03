@@ -12,23 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+
+    <%= f.text_field :name, :class => 'formInput', placeholder: "Name" %>
   </div>
   <div class="field">
-    <input type="button" onclick="getLocation()" value="getLocation">
-    <%= f.label :location, id: 'location' %><br>
-    <%= f.text_field :location %>
+
+    <%= f.text_field :description, :class => 'formInput', placeholder: "Description" %>
   </div>
   <div class="field">
-    <%= f.label :users_id %><br>
-    <%= f.number_field :users_id %>
+    <%= f.text_field :hints, :class => 'formInput', placeholder: "Hints" %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <input type="button" class="formBtn" value="Upload Photo">
+    <%= f.text_field :location, :class => 'hidden' %>
+  </div>
+  <div class="field">
+    <%= f.number_field :users_id, :class => 'hidden'  %>
+  </div>
+  <div class="field">
+    <input type="file" accept="image/*" class="formBtn" value="Upload Photo">
+    <%= f.text_field :image, :class => 'hidden'  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => 'formSubmit' %>
   </div>
 <% end %>

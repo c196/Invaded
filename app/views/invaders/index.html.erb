@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Description</th>
+      <th>Hints</th>
       <th>Location</th>
       <th>Users</th>
       <th>Image</th>
@@ -17,6 +19,8 @@
     <% @invaders.each do |invader| %>
       <tr>
         <td><%= invader.name %></td>
+        <td><%= invader.description %></td>
+        <td><%= invader.hints %></td>
         <td><%= invader.location %></td>
         <td><%= invader.users_id %></td>
         <td><%= invader.image %></td>
