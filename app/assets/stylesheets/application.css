@@ -228,12 +228,17 @@ nav .navRight {
 
 /* Forms ********************** */
 
+.formFrame {
+  min-height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+}
+
 .formBox {
   width: 100%;
   max-width: 500px;
   height: auto;
   margin: 0 auto;
-  background-color: rgba(0,0,0,0.7);
+
   text-align: left;
   padding: 50px;
   color: white;
