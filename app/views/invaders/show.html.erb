@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @invader.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @invader.location %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @invader.users_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @invader.image %>
+</p>
+
 <%= link_to 'Edit', edit_invader_path(@invader) %> |
 <%= link_to 'Back', invaders_path %>

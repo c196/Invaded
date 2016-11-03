@@ -69,6 +69,6 @@ class InvadersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invader_params
-      params.fetch(:invader, {})
+      params.require(:invader).permit(:name, :location, :users_id, :image)
     end
 end

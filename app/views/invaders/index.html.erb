@@ -5,6 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Users</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +16,10 @@
   <tbody>
     <% @invaders.each do |invader| %>
       <tr>
+        <td><%= invader.name %></td>
+        <td><%= invader.location %></td>
+        <td><%= invader.users_id %></td>
+        <td><%= invader.image %></td>
         <td><%= link_to 'Show', invader %></td>
         <td><%= link_to 'Edit', edit_invader_path(invader) %></td>
         <td><%= link_to 'Destroy', invader, method: :delete, data: { confirm: 'Are you sure?' } %></td>

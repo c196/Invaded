@@ -11,8 +11,24 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <input type="button" onclick="getLocation()" value="getLocation">
+    <%= f.label :location, id: 'location' %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :users_id %><br>
+    <%= f.number_field :users_id %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
   <div class="actions">
-    
     <%= f.submit %>
   </div>
 <% end %>

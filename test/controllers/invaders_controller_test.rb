@@ -18,7 +18,7 @@ class InvadersControllerTest < ActionController::TestCase
 
   test "should create invader" do
     assert_difference('Invader.count') do
-      post :create, invader: {  }
+      post :create, invader: { image: @invader.image, location: @invader.location, name: @invader.name, users_id: @invader.users_id }
     end
 
     assert_redirected_to invader_path(assigns(:invader))
@@ -35,7 +35,7 @@ class InvadersControllerTest < ActionController::TestCase
   end
 
   test "should update invader" do
-    patch :update, id: @invader, invader: {  }
+    patch :update, id: @invader, invader: { image: @invader.image, location: @invader.location, name: @invader.name, users_id: @invader.users_id }
     assert_redirected_to invader_path(assigns(:invader))
   end
 
