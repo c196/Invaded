@@ -23,14 +23,17 @@
     <%= f.text_field :hints, :class => 'formInput', placeholder: "Hints" %>
   </div>
   <div class="field">
-    <input type="button" class="formBtn" value="Upload Photo">
+    <input type="button" class="formBtn" value="Get Location">
     <%= f.text_field :location, :class => 'hidden' %>
   </div>
   <div class="field">
     <%= f.number_field :users_id, :class => 'hidden'  %>
   </div>
   <div class="field">
-    <input type="file" accept="image/*" class="formBtn" value="Upload Photo">
+    <div class="imgBtnMask">
+    <input type="button" class="formBtn" value="Upload Image">
+    <input type="file" accept="image/*" class="formBtn imgBtn" value="Upload Photo">
+  </div>
     <%= f.text_field :image, :class => 'hidden'  %>
   </div>
   <div class="actions">

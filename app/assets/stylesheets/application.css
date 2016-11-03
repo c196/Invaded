@@ -307,3 +307,14 @@ font-weight: 100;
   margin: 5px 0 10px 0;
   width: 100%;
 }
+
+.imgBtn {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.imgBtnMask {
+  position: relative;
+}
