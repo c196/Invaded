@@ -6,7 +6,8 @@ one:
   hints: MyString
   location: MyString
   users_id: 1
-  image: MyString
+  accuracy: 1
+  credibility: 1
 
 two:
   name: MyString
@@ -14,4 +15,5 @@ two:
   hints: MyString
   location: MyString
   users_id: 1
-  image: MyString
+  accuracy: 1
+  credibility: 1

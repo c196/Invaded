@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :invaders
   get 'explore/map'
 
-  resources :invaders
+  get 'explore/map'
+
   get 'authenticate/index'
 
   get 'play/hub'

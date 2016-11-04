@@ -6,7 +6,8 @@ class CreateInvaders < ActiveRecord::Migration
       t.string :hints
       t.string :location
       t.integer :users_id
-      t.string :image
+      t.integer :accuracy
+      t.integer :credibility
 
       t.timestamps null: false
     end

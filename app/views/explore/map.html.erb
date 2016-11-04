@@ -11,10 +11,12 @@
             },
             disableDefaultUI: false,
             scrollwheel: false,
-            zoom: 12
+            zoom: 12,
+            featureType: 'water'
         });
 
         $.getJSON('/invaders.json', function (data) {
+            console.log(data);
             $.each(data, function (i, invader) {
                 invaderList[i] = [];
                 var LatLngSplit = invader['location'].split(','),
@@ -26,10 +28,7 @@
                 var marker = new google.maps.Marker({position: myLatLng, map: map});
 
                 marker.addListener('click', function () {
-                    document.getElementById('invaderOverlay').style.display = 'table';
-                    document.getElementById('invaderTitle').innerHTML = String(invader['name']);
-                    document.getElementById('invaderDescription').innerHTML = String(invader['description']);
-                    document.getElementById('invaderHint').innerHTML = String(invader['hints']);
+                    window.location.href = "/invaders/" + invader['id'];
                 });
 
                 var cityCircle = new google.maps.Circle({
@@ -40,7 +39,7 @@
                     fillOpacity: 0.35,
                     map: map,
                     center: myLatLng,
-                    radius: 47
+                    radius: parseInt(invader['accuracy'])
                 });
 
             });
@@ -48,21 +47,7 @@
         });
 
     }
-
 </script>
 
-<div id="invaderOverlay" class="invaderOverlay" hidden>
-    <div class="invaderOverlayInner">
-        <div class="invaderSpecs">
-            <h1 id="invaderTitle"></h1>
-            <hr>
-            <h2 id="invaderDescription"></h2>
-            <br>
-            <p id="invaderHint"></p>
-            <br>
-            <a class="btnClose" onclick="document.getElementById('invaderOverlay').style.display = 'none';"><i class="material-icons">&#xE5CD;</i></a>
-        </div>
-    </div>
-</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApOWJ0BYbS9dOM2PK0vTJgxA4xVDRlnmk&callback=initMap" async defer></script>

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+  <%= image_tag @invader.image.url(:large) %>
+
 <p>
   <strong>Name:</strong>
   <%= @invader.name %>
@@ -21,18 +23,18 @@
 </p>
 
 <p>
-  <strong>Accuracy:</strong>
-  <%= @invader.accuracy %>
-</p>
-
-<p>
   <strong>Users:</strong>
   <%= @invader.users_id %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @invader.image %>
+  <strong>Accuracy:</strong>
+  <%= @invader.accuracy %>
+</p>
+
+<p>
+  <strong>Credibility:</strong>
+  <%= @invader.credibility %>
 </p>
 
 <%= link_to 'Edit', edit_invader_path(@invader) %> |

@@ -1,4 +1,5 @@
-<%= form_for(@invader) do |f| %>
+
+<%= form_for @invader, html: { multipart: true } do |f| %>
   <% if @invader.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@invader.errors.count, "error") %> prohibited this invader from being saved:</h2>
@@ -25,7 +26,12 @@
   <div class="field">
     <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="getLocation()">
     <%= f.text_field :location,:id => "locationField", :class => 'hidden' %>
+  </div>
 
+  <div class="field">
+    <div class="imgBtnMask">
+    <input type="button" class="formBtn" value="Upload Image" id="imgResult">
+    <%= f.file_field :image, :id => 'imgInput', :onchange => "document.getElementById('imgResult').style.background = '#DAFF80'", :class => 'formBtn imgBtn'%>
   </div>
   <div class="field">
     <%= f.text_field :accuracy,:id => "locationAccuracy", :class => 'hidden' %>
@@ -33,14 +39,9 @@
   <div class="field">
     <%= f.number_field :users_id, :class => 'hidden'  %>
   </div>
-  <div class="field">
-    <div class="imgBtnMask">
-    <input type="button" class="formBtn" value="Upload Image">
-    <input type="file" accept="image/*" class="formBtn imgBtn" value="Upload Photo">
   </div>
-    <%= f.text_field :image, :class => 'hidden'  %>
-  </div>
+
   <div class="actions">
-    <%= f.submit "Submit", :class => 'formSubmit' %>
+      <%= f.submit "Submit", :class => 'formSubmit' %>
   </div>
 <% end %>

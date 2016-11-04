@@ -30,7 +30,7 @@ $.getJSON('/invaders.json', function(data) {
 function getLocation() {
 
 document.getElementById('btnLocation').style.background = "#CC6452";
-document.getElementById('btnLocation').value = "Getting Location...";
+document.getElementById('btnLocation').value = "Search Location";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -44,6 +44,4 @@ function showPosition(position) {
   document.getElementById('locationAccuracy').value = accuracy;
   document.getElementById('btnLocation').style.background = "#DAFF80";
   document.getElementById('btnLocation').value = "Done!";
-    console.log("Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude + "<br> Accuracy:" + position.coords.accuracy);
 }
