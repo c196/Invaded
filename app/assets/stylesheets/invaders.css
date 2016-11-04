@@ -1,5 +1,17 @@
+body {
+    position: relative;
+}
+
 .exploreMap {
-  width: 100%;
-  height: calc(100vh - 45px);
-  background-color: rgba(255, 0, 0, 0.5);
+    width: 100%;
+    height: calc(100vh - 45px);
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.invaderOverlay {
+    background-color: rgba(255, 0, 0, 0.5);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
 }

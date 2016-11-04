@@ -9,40 +9,60 @@
                 lat: 46.9425775,
                 lng: 7.4524558
             },
+            disableDefaultUI: false,
             scrollwheel: false,
             zoom: 12
         });
 
         $.getJSON('/invaders.json', function (data) {
-            console.log(data);
             $.each(data, function (i, invader) {
                 invaderList[i] = [];
-                var acc = invader['accuracy'];
-                console.log(acc);
-                console.log(invader['location']);
                 var LatLngSplit = invader['location'].split(','),
                     lat = LatLngSplit[0],
                     lng = LatLngSplit[1];
-                console.log(lat + "long:" + lng);
+
                 myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-                var marker = new google.maps.Marker({position: myLatLng, map: map, title: 'Hello World!'});
+                console.log(invader['name']);
+                var marker = new google.maps.Marker({position: myLatLng, map: map});
+
+                marker.addListener('click', function () {
+                    document.getElementById('invaderOverlay').style.display = 'table';
+                    document.getElementById('invaderTitle').innerHTML = String(invader['name']);
+                    document.getElementById('invaderDescription').innerHTML = String(invader['description']);
+                    document.getElementById('invaderHint').innerHTML = String(invader['hints']);
+                });
 
                 var cityCircle = new google.maps.Circle({
-                  strokeColor: '#FF0000',
-                  strokeOpacity: 0,
-                  strokeWeight: 2,
-                  fillColor: '#FF0000',
-                  fillOpacity: 0.35,
-                  map: map,
-                  center: myLatLng,
-                  radius: 47
-    });
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    map: map,
+                    center: myLatLng,
+                    radius: 47
+                });
 
             });
 
         });
 
     }
+
 </script>
+
+<div id="invaderOverlay" class="invaderOverlay" hidden>
+    <div class="invaderOverlayInner">
+        <div class="invaderSpecs">
+            <h1 id="invaderTitle"></h1>
+            <hr>
+            <h2 id="invaderDescription"></h2>
+            <br>
+            <p id="invaderHint"></p>
+            <br>
+            <a class="btnClose" onclick="document.getElementById('invaderOverlay').style.display = 'none';"><i class="material-icons">&#xE5CD;</i></a>
+        </div>
+    </div>
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApOWJ0BYbS9dOM2PK0vTJgxA4xVDRlnmk&callback=initMap" async defer></script>
