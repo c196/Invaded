@@ -92,6 +92,10 @@ body {
   text-align: center;
 }
 
+.overFlowHidden {
+  overflow: hidden;
+}
+
 /* devise classes */
 
 .devise h2 {

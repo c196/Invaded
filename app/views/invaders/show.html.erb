@@ -1,6 +1,7 @@
+<div class="showInvaderSpecs">
 <p id="notice"><%= notice %></p>
 
-  <%= image_tag @invader.image.url(:large) %>
+<div class="overFlowHidden"> <%= image_tag @invader.image.url(:large), :class => "invaderImage" %> </div>
 
 <p>
   <strong>Name:</strong>
@@ -15,11 +16,6 @@
 <p>
   <strong>Hints:</strong>
   <%= @invader.hints %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @invader.location %>
 </p>
 
 <p>
@@ -39,3 +35,5 @@
 
 <%= link_to 'Edit', edit_invader_path(@invader) %> |
 <%= link_to 'Back', invaders_path %>
+
+</div>
