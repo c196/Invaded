@@ -96,6 +96,35 @@ body {
   overflow: hidden;
 }
 
+.txtAlignCenter {
+  text-align: center;
+}
+
+.links {
+  color: black;
+  text-decoration: none;
+  font-weight: 100;
+  border-bottom: 1px dotted black;
+  font-size: .9em;
+}
+
+/* fonts ****************/
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.1em;
+  font-weight: 100;
+  margin-bottom: 5px;
+}
+
 /* devise classes */
 
 .devise h2 {

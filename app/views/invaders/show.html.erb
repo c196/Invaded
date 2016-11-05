@@ -1,39 +1,52 @@
 <div class="showInvaderSpecs">
 <p id="notice"><%= notice %></p>
 
-<div class="overFlowHidden"> <%= image_tag @invader.image.url(:large), :class => "invaderImage" %> </div>
+<div class="invaderImageFrame overFlowHidden"> <%= image_tag @invader.image.url(:large), :class => "invaderImage" %> </div>
 
-<p>
-  <strong>Name:</strong>
+<div class="invaderText">
+
+
+    <h1>
   <%= @invader.name %>
-</p>
+</h1>
+<br>
+<hr>
+<br>
 
-<p>
-  <strong>Description:</strong>
+  <h2>Description:</h2>
+  <p>
   <%= @invader.description %>
-</p>
+  </p>
+  <br>
 
-<p>
-  <strong>Hints:</strong>
+
+
+  <h2>Hints:</h2>
+  <p>
   <%= @invader.hints %>
-</p>
+  </p>
+  <br>
 
-<p>
-  <strong>Users:</strong>
+
+
+  <h2>Explorer:</h2>
+  <p>
   <%= @invader.users_id %>
-</p>
+  </p>
+  <br>
 
-<p>
-  <strong>Accuracy:</strong>
-  <%= @invader.accuracy %>
-</p>
-
-<p>
-  <strong>Credibility:</strong>
+  <h2>Credibility:</h2>
+  <p>
   <%= @invader.credibility %>
-</p>
+  </p>
 
-<%= link_to 'Edit', edit_invader_path(@invader) %> |
-<%= link_to 'Back', invaders_path %>
+
+<div class="txtAlignCenter">
+
+<br><br>
+<%= link_to 'Edit', edit_invader_path(@invader), :class => "links" %>&nbsp;&nbsp;
+
+</div>
+</div>
 
 </div>

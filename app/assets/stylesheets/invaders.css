@@ -6,12 +6,26 @@
 
 /* Invader spec Styles ************** */
 
+.invaderImageFrame {
+  width: 100vw;
+  height: auto;
+  background-color: rgb(50, 50, 50);
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+}
+
 .invaderImage {
   max-width: 100vw;
-  max-height: 50vh;
+  max-height: 30vh;
 }
 
 .showInvaderSpecs {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);;
   min-height: calc(100vh - 45px);
+  color: black;
+}
+
+.invaderText {
+  width: 100vw;
+  padding: 20px 20px 0 20px;
 }
