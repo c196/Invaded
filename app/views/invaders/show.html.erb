@@ -44,8 +44,13 @@
 
 <br><br>
 
+<% if @invader.users_id == current_user.id  %>
+ <%= link_to 'Edit', edit_invader_path(@invader), :class => "formBtn" %><%= link_to 'Destroy', @invader, method: :delete, data: { confirm: 'Are you sure?' },:class => "formBtn delete" %>
+<% else %>
+ <%= link_to 'Found Invader', edit_invader_path(@invader), :class => "formBtn submit" %><%= link_to 'Unable to find', @invader, method: :delete, data: { confirm: 'Are you sure?' },:class => "formBtn delete" %>
+<% end %>
 
-<%= link_to 'Edit', edit_invader_path(@invader), :class => "links" %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to 'Destroy', @invader, method: :delete, data: { confirm: 'Are you sure?' },:class => "links" %>
+
 <br><br><br><br><br>
 </div>
 </div>
