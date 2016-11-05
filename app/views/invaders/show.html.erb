@@ -1,5 +1,4 @@
 <div class="showInvaderSpecs">
-<p id="notice"><%= notice %></p>
 
 <div class="invaderImageFrame overFlowHidden"> <%= image_tag @invader.image.url(:large), :class => "invaderImage" %> </div>
 
@@ -44,8 +43,10 @@
 <div class="txtAlignCenter">
 
 <br><br>
-<%= link_to 'Edit', edit_invader_path(@invader), :class => "links" %>&nbsp;&nbsp;
 
+
+<%= link_to 'Edit', edit_invader_path(@invader), :class => "links" %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to 'Destroy', @invader, method: :delete, data: { confirm: 'Are you sure?' },:class => "links" %>
+<br><br><br><br><br>
 </div>
 </div>
 

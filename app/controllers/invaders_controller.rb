@@ -57,7 +57,7 @@ class InvadersController < ApplicationController
   def destroy
     @invader.destroy
     respond_to do |format|
-      format.html { redirect_to invaders_url, notice: 'Invader was successfully destroyed.' }
+      format.html { redirect_to play_hub_path, notice: 'Invader was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
