@@ -1,6 +1,6 @@
 <div class="formFrame">
 <div class="invaderImageFrame overFlowHidden">
-    <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "localImage" %>
+    <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "trueImage" %>
 </div>
 <div class="centerContentSpecial">
   <div class="centered">
@@ -11,14 +11,15 @@
         <h2>Validate your Invader</h2>
 
         <div class="field">
-          <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="getLocation()">
+          <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="valLocation()">
+        <label id="invaderPos" hidden><%= @invader.location %></label>
         </div>
 
 
         <div class="field">
           <div class="imgBtnMask">
           <input type="button" class="formBtn" value="Upload Image" id="imgResult">
-          <input type="file" id="imgInput" onchange="document.getElementById('imgResult').style.background = '#DAFF80'" class="formBtn imgBtn">
+          <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
 
         </div>
       </div>
@@ -27,8 +28,29 @@
 
 
         <script>
-            var diff = resemble(document.getElementById("localImage").src).compareTo("/images/pic01.jpg").ignoreColors().onComplete(function (data) {
-                console.log(data);
+
+        document.getElementById('imgInput').onchange = function (evt) {
+          document.getElementById('imgResult').value = "Working...";
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // FileReader support
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+
+            var diff = resemble(document.getElementById("trueImage").src).compareTo(fr.result).ignoreAntialiasing().scaleToSameSize().onComplete(function (data) {
+              if (data.misMatchPercentage < '40') {
+                console.log(data.misMatchPercentage);
+                  document.getElementById('imgResult').style.background = "#DAFF80";
+                  document.getElementById('imgResult').value = "Done!";
+              }
+              else {
+                console.log(data.misMatchPercentage);
+                  document.getElementById('imgResult').value = "Missmatch";
+                  document.getElementById('imgResult').style.background = "#CC6452";
+              }
+
                 /*
           {
             misMatchPercentage : 100, // %
@@ -38,6 +60,22 @@
           }
           */
             });
+        }
+        fr.readAsDataURL(files[0]);
+    }
+
+    // Not supported
+    else {
+        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // them on the server until the user's session ends.
+    }
+}
+
+
+        function checkImage() {
+
+        }
+
         </script>
 
 

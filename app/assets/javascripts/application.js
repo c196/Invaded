@@ -19,7 +19,6 @@
 
 function getInvaders() {
 $.getJSON('/invaders.json', function(data) {
-  console.log(data); //you'll find your json here
 });
 }
 
@@ -37,6 +36,41 @@ document.getElementById('btnLocation').value = "Search Location";
         document.getElementById('locationField').value = "Not Supported";
     }
 }
+
+function valLocation() {
+
+document.getElementById('btnLocation').style.background = "#CC6452";
+document.getElementById('btnLocation').value = "Search Location";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(calcResult);
+    } else {
+        document.getElementById('locationField').value = "Not Supported";
+    }
+}
+
+function calcResult(position) {
+  var invaderPos = document.getElementById("invaderPos").innerHTML;
+  var latlon = position.coords.latitude + "," + position.coords.longitude;
+  var LatLngSplit = invaderPos.split(','),
+      lat = LatLngSplit[0],
+      lng = LatLngSplit[1];
+  var currentPosSplit = latlon.split(','),
+      latC = currentPosSplit[0],
+      lngC = currentPosSplit[1];
+  var latDifference = latC - lat;
+  var lngDifference = lngC - lng;
+  var totalDifference = latDifference + lngDifference;
+  console.log(Math.abs(totalDifference));
+  if (Math.abs(totalDifference) < '0.00005') {
+    document.getElementById('btnLocation').style.background = "#DAFF80";
+    document.getElementById('btnLocation').value = "Done!";
+  }
+  else {
+    document.getElementById('btnLocation').style.background = "#CC6452";
+    document.getElementById('btnLocation').value = "Try again!";
+  }
+}
+
 
 function showPosition(position) {
   var latlon = position.coords.latitude + "," + position.coords.longitude;
