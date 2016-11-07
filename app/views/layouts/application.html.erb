@@ -18,7 +18,9 @@
 
     <div class="navLeft">
       <% if current_page?(:controller => 'play', :action => 'hub')%>
-<a href="/"><i class="material-icons">power_settings_new</i></a>
+      <%= link_to destroy_user_session_path, :method => :delete do %>
+    <i class="material-icons">power_settings_new</i>
+<% end %>
   <% else %><a href="javascript:history.back()"><i class="material-icons">arrow_back</i></a><% end %>
 </div>
 

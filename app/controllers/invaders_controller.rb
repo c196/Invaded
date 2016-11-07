@@ -22,6 +22,10 @@ class InvadersController < ApplicationController
   def edit
   end
 
+  def found
+    @invader = Invader.find(params[:id])
+  end
+
   # POST /invaders
   # POST /invaders.json
   def create

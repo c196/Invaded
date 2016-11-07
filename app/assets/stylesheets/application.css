@@ -93,6 +93,12 @@ body {
   display: table;
 }
 
+.centerContentSpecial {
+  width: 100%;
+  min-height: 60vh;
+  display: table;
+}
+
 .centered {
   display: table-cell;
   vertical-align: middle;

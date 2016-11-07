@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/invaders/found/:id', to: 'invaders#found'
+
   resources :invaders
   get 'explore/map'
 
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   get 'play/hub'
   get 'invaders/map'
   get 'invaders/new'
+
+
 
   devise_for :users, controllers: { registrations: "registrations"}
   get 'welcome/index'

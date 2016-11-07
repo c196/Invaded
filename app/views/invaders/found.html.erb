@@ -1,0 +1,49 @@
+<div class="formFrame">
+<div class="invaderImageFrame overFlowHidden">
+    <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "localImage" %>
+</div>
+<div class="centerContentSpecial">
+  <div class="centered">
+  <div class="formBox">
+
+
+      <div class="centerText">
+        <h2>Validate your Invader</h2>
+
+        <div class="field">
+          <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="getLocation()">
+        </div>
+
+
+        <div class="field">
+          <div class="imgBtnMask">
+          <input type="button" class="formBtn" value="Upload Image" id="imgResult">
+          <input type="file" id="imgInput" onchange="document.getElementById('imgResult').style.background = '#DAFF80'" class="formBtn imgBtn">
+
+        </div>
+      </div>
+        <br><br>
+
+
+
+        <script>
+            var diff = resemble(document.getElementById("localImage").src).compareTo("/images/pic01.jpg").ignoreColors().onComplete(function (data) {
+                console.log(data);
+                /*
+          {
+            misMatchPercentage : 100, // %
+            isSameDimensions: true, // or false
+            dimensionDifference: { width: 0, height: -1 }, // defined if dimensions are not the same
+            getImageDataUrl: function(){}
+          }
+          */
+            });
+        </script>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
