@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise Mailer config
-  config.action_mailer.default_url_options = { host: 'invaded.world' }
+  config.action_mailer.default_url_options = { host: 'https://invaded.world' }
   config.action_mailer.delivery_method = :smtp
 
 end

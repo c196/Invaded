@@ -1,7 +1,7 @@
 .hub {
   width: 100%;
   min-height: 100vh;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hub .grid-icons {
@@ -11,30 +11,37 @@
 
 .hub .grid-icons li {
   width: 50vw;
-  border-bottom: 1px solid #e3e3e3;
-  border-right: 1px solid #e3e3e3;
+  border-bottom: 1px solid #535353;
+  border-right: 1px solid #535353;
   display: inline-block;
   height: 50vw;
 }
 
 .hub .grid-icons li .outer{
   font-size: 16px;
-  color: black;
+  color: white;
   height: 100%;
   width: 100%;
   display: table;
   text-align: center;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .hub .grid-icons li .inner{
   display: table-cell;
   vertical-align: middle;
-  color: #606060;
+  color: white;
   font-weight: bold;
+  font-weight: 100;
+
 }
 
 .hub .grid-icons i {
-  color: #cdcdcd;
+  color: white;
   font-size: 50px;
   margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
 }

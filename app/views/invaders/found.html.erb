@@ -2,14 +2,13 @@
 <div class="invaderImageFrame overFlowHidden">
     <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "trueImage" %>
 </div>
-<div class="centerContentSpecial">
-  <div class="centered">
-  <div class="formBox">
+
+<div class="invaderFrame">
 
 
       <div class="centerText">
         <h2>Validate your Invader</h2>
-
+<br>
         <div class="field">
           <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="valLocation()">
         <label id="invaderPos" hidden><%= @invader.location %></label>
@@ -20,6 +19,7 @@
           <div class="imgBtnMask">
           <input type="button" class="formBtn" value="Upload Image" id="imgResult">
           <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
+          <input type="button" class="formBtn submit" value="Submit">
 
         </div>
       </div>
@@ -78,9 +78,6 @@
 
         </script>
 
-
-</div>
-</div>
 </div>
 </div>
 </div>
