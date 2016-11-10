@@ -27,6 +27,9 @@ class InvadersController < ApplicationController
     #create new object with attributes of existing record
     @existing_invader.credibility = @existing_invader.credibility + 10
     write_invader(@existing_invader)
+    x = current_user.score
+    x = 0
+    current_user.score = x
   end
 
 
