@@ -17,10 +17,9 @@
                 <div class="imgBtnMask">
                     <input type="button" class="formBtn" value="Upload Image" id="imgResult">
                     <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
-                    <%= link_to "Found", { :controller =>
-                               'invaders', :action =>'update_credibility',
+                    <%= link_to "Submit", { :controller =>
+                               'invaders', :action =>'upgrade_credibility',
                                :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
-                    <input type="button" class="formBtn submit" value="Submit">
 
                 </div>
             </div>

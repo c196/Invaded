@@ -22,15 +22,26 @@ class InvadersController < ApplicationController
   def edit
   end
 
-  helper_method :update_credibility
-  def update_credibility
+  def upgrade_credibility
     @existing_invader = Invader.find(params[:id])
     #create new object with attributes of existing record
-    @existing_invader.credibility = '0'
-    @invader = Invader.new(@existing_invader.attributes.merge!(credibility: '0'))
-    @existing_invader.destroy
+    @existing_invader.credibility = @existing_invader.credibility + 10
+    write_invader(@existing_invader)
+  end
+
+
+  def reduce_credibility
+    @existing_invader = Invader.find(params[:id])
+    @existing_invader.credibility = @existing_invader.credibility - 10
+    write_invader(@existing_invader)
+  end
+
+  def write_invader(b)
+    @invader = Invader.new(b.attributes)
+    b.destroy
     @invader.save
     redirect_to @invader, notice: 'Invader was successfully updated.'
+
   end
 
   def found

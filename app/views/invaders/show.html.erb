@@ -50,11 +50,13 @@
 <% else %>
 
 
-            <%= link_to "Found", { :controller =>
+          <%= link_to "Found", { :controller =>
                        'invaders', :action =>'found',
                        :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
 
- <%= link_to 'Not Found', @invader, method: :update_credibility, data: { confirm: 'Are you sure?' },:class => "formBtn delete" %>
+                       <%= link_to "Unable to find", { :controller =>
+                                  'invaders', :action =>'reduce_credibility',
+                                  :id=>"#{@invader.id}" }, :class => "formBtn delete" %>
 
 
 

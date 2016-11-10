@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/invaders/found/:id', to: 'invaders#found'
-  get '/update_credibility/:id', to: 'invaders#update_credibility'
+  get '/upgrade_credibility/:id', to: 'invaders#upgrade_credibility'
+  get '/reduce_credibility/:id', to: 'invaders#reduce_credibility'
 
   resources :invaders
   get 'explore/map'
