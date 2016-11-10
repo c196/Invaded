@@ -22,6 +22,17 @@ class InvadersController < ApplicationController
   def edit
   end
 
+  helper_method :update_credibility
+  def update_credibility
+    @existing_invader = Invader.find(params[:id])
+    #create new object with attributes of existing record
+    @existing_invader.credibility = '0'
+    @invader = Invader.new(@existing_invader.attributes.merge!(credibility: '0'))
+    @existing_invader.destroy
+    @invader.save
+    redirect_to @invader, notice: 'Invader was successfully updated.'
+  end
+
   def found
     @invader = Invader.find(params[:id])
   end
@@ -65,6 +76,10 @@ class InvadersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # PATCH/PUT /invaders/1
+  # PATCH/PUT /invaders/1.json
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,84 +1,66 @@
 <div class="formFrame">
-<div class="invaderImageFrame overFlowHidden">
-    <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "trueImage" %>
-</div>
+    <div class="invaderImageFrame overFlowHidden">
+        <%= image_tag @invader.image.url(:large), :class => "invaderImage", :id => "trueImage" %>
+    </div>
 
-<div class="invaderFrame">
+    <div class="invaderFrame">
 
+        <div class="centerText">
+            <h2>Validate your Invader</h2>
+            <br>
+            <div class="field">
+                <input type="button" class="formBtn" id="btnLocation" value="Get Location" onclick="valLocation()">
+                <label id="invaderPos" hidden><%= @invader.location %></label>
+            </div>
 
-      <div class="centerText">
-        <h2>Validate your Invader</h2>
-<br>
-        <div class="field">
-          <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="valLocation()">
-        <label id="invaderPos" hidden><%= @invader.location %></label>
+            <div class="field">
+                <div class="imgBtnMask">
+                    <input type="button" class="formBtn" value="Upload Image" id="imgResult">
+                    <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
+                    <%= link_to "Found", { :controller =>
+                               'invaders', :action =>'update_credibility',
+                               :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
+                    <input type="button" class="formBtn submit" value="Submit">
+
+                </div>
+            </div>
+            <br><br>
+
+            <script>
+
+                document.getElementById('imgInput').onchange = function (evt) {
+                    document.getElementById('imgResult').value = "Working...";
+                    var tgt = evt.target || window.event.srcElement,
+                        files = tgt.files;
+
+                    // FileReader support
+                    if (FileReader && files && files.length) {
+                        var fr = new FileReader();
+                        fr.onload = function () {
+
+                            var diff = resemble(document.getElementById("trueImage").src).compareTo(fr.result).ignoreAntialiasing().scaleToSameSize().onComplete(function (data) {
+                                if (data.misMatchPercentage < '40') {
+                                    console.log(data.misMatchPercentage);
+                                    document.getElementById('imgResult').style.background = "#DAFF80";
+                                    document.getElementById('imgResult').value = "Done!";
+                                } else {
+                                    console.log(data.misMatchPercentage);
+                                    document.getElementById('imgResult').value = "Missmatch";
+                                    document.getElementById('imgResult').style.background = "#CC6452";
+                                }
+                            });
+                        }
+                        fr.readAsDataURL(files[0]// Not supported
+                        );
+                    } else {
+                        // fallback -- perhaps submit the input to an iframe and temporarily store them on the server until the user's session ends.
+                    }
+                }
+
+                function checkImage() {}
+            </script>
+
         </div>
-
-
-        <div class="field">
-          <div class="imgBtnMask">
-          <input type="button" class="formBtn" value="Upload Image" id="imgResult">
-          <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
-          <input type="button" class="formBtn submit" value="Submit">
-
-        </div>
-      </div>
-        <br><br>
-
-
-
-        <script>
-
-        document.getElementById('imgInput').onchange = function (evt) {
-          document.getElementById('imgResult').value = "Working...";
-    var tgt = evt.target || window.event.srcElement,
-        files = tgt.files;
-
-    // FileReader support
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-
-            var diff = resemble(document.getElementById("trueImage").src).compareTo(fr.result).ignoreAntialiasing().scaleToSameSize().onComplete(function (data) {
-              if (data.misMatchPercentage < '40') {
-                console.log(data.misMatchPercentage);
-                  document.getElementById('imgResult').style.background = "#DAFF80";
-                  document.getElementById('imgResult').value = "Done!";
-              }
-              else {
-                console.log(data.misMatchPercentage);
-                  document.getElementById('imgResult').value = "Missmatch";
-                  document.getElementById('imgResult').style.background = "#CC6452";
-              }
-
-                /*
-          {
-            misMatchPercentage : 100, // %
-            isSameDimensions: true, // or false
-            dimensionDifference: { width: 0, height: -1 }, // defined if dimensions are not the same
-            getImageDataUrl: function(){}
-          }
-          */
-            });
-        }
-        fr.readAsDataURL(files[0]);
-    }
-
-    // Not supported
-    else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
-        // them on the server until the user's session ends.
-    }
-}
-
-
-        function checkImage() {
-
-        }
-
-        </script>
-
-</div>
-</div>
+    </div>
 </div>
 </div>

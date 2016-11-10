@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/invaders/found/:id', to: 'invaders#found'
+  get '/update_credibility/:id', to: 'invaders#update_credibility'
 
   resources :invaders
   get 'explore/map'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   get 'play/hub'
   get 'invaders/map'
   get 'invaders/new'
+
+  match '/update_credibility' => 'invaders#update_credibility',:via => [:post], :as => 'update_credibility'
 
 
 

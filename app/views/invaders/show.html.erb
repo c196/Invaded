@@ -54,9 +54,12 @@
                        'invaders', :action =>'found',
                        :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
 
- <%= link_to 'Unable to find', @invader, method: :delete, data: { confirm: 'Are you sure?' },:class => "formBtn delete" %>
-<% end %>
+ <%= link_to 'Not Found', @invader, method: :update_credibility, data: { confirm: 'Are you sure?' },:class => "formBtn delete" %>
 
+
+
+
+<% end %>
 
 <br><br><br><br><br>
 </div>
