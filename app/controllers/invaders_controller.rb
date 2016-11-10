@@ -40,7 +40,7 @@ class InvadersController < ApplicationController
     @invader = Invader.new(b.attributes)
     b.destroy
     @invader.save
-    redirect_to @invader, notice: 'Invader was successfully updated.'
+    redirect_to @invader
 
   end
 
