@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'leaderboard/show'
+
   get '/invaders/found/:id', to: 'invaders#found'
   get '/upgrade_credibility/:id', to: 'invaders#upgrade_credibility'
   get '/reduce_credibility/:id', to: 'invaders#reduce_credibility'
