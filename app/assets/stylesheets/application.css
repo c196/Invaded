@@ -14,7 +14,7 @@
  *= require_self
  */
 
- <%= javascript_include_tag controller_name, 'data-turbolinks-track' => false %>
+
 
   @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600');
 
