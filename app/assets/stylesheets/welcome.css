@@ -514,7 +514,6 @@
 
 	header p {
 		color: #ffffff;
-		font-size: 0.9em;
 		letter-spacing: 0.25em;
 		line-height: 2.25;
 		margin-top: -0.75em;
@@ -523,19 +522,18 @@
 	}
 
 	header h3 + p {
-		font-size: 0.8em;
-	}
+			}
 
 	header h4 + p {
-		font-size: 0.75em;
+
 	}
 
 	header h5 + p {
-		font-size: 0.75em;
+
 	}
 
 	header h6 + p {
-		font-size: 0.75em;
+
 	}
 
 	header.major {
@@ -553,8 +551,7 @@
 		}
 
 		header.major p {
-			margin-top: 0;
-			margin-bottom: 2em;
+
 		}
 
 	@media screen and (max-width: 1280px) {
