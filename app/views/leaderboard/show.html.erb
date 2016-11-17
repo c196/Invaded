@@ -1,6 +1,18 @@
+<div class="leaderboard">
+  <div class="tableFrame">
+    <h1>Highscores</h1>
+    <br><br>
+  <table>
+
+    <th>Username</th>
+    <th>Score</th>
 <% @users.each do |user| %>
-    <li>
-        <%= user.user_name %>
-        <%= user.score %>
-    </li>
+
+<tr>
+      <td>  <%= user.user_name %></td>
+      <td>  <%= user.score %></td>
+  </tr>
+
 <% end %>
+</table>
+</div>
