@@ -1,3 +1,5 @@
+<%= javascript_include_tag controller_name, 'data-turbolinks-track' => false %>
+
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 
@@ -813,7 +815,7 @@
 
 	}
 
-	
+
 	body.is-menu-visible #page-wrapper {
 		-moz-filter: blur(8px);
 		-webkit-filter: blur(8px);

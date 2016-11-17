@@ -1,3 +1,4 @@
+<%= javascript_include_tag controller_name, 'data-turbolinks-track' => false %>
 .exploreMap {
   width: 100%;
   height: calc(100vh - 45px);
