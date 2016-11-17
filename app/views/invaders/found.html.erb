@@ -8,57 +8,32 @@
         <div class="centerText">
             <h2>Validate your Invader</h2>
             <br>
+            <!-- <%= form_for @temp_invader, html: { multipart: true } do |f| %>
             <div class="field">
                 <input type="button" class="formBtn" id="btnLocation" value="Get Location" onclick="valLocation()">
                 <label id="invaderPos" hidden><%= @invader.location %></label>
             </div>
 
+            <%= f.text_field :location %>
+            <%= f.submit %>
+
             <div class="field">
                 <div class="imgBtnMask">
                     <input type="button" class="formBtn" value="Upload Image" id="imgResult">
-                    <input type="file" id="imgInput" onchange="checkImage()" class="formBtn imgBtn">
+                    <input type="file" id="imgInput" class="formBtn imgBtn">
                     <%= link_to "Submit", { :controller =>
                                'invaders', :action =>'upgrade_credibility',
                                :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
 
                 </div>
             </div>
+            <% end %> -->
+
+            <%= form_tag({controller: "invaders", action: "createTemp"}, method: "post") do %>
+            <%= text_field_tag(:location) %>
+            <%= submit_tag("Search") %>
+            <% end %>
             <br><br>
-
-            <script>
-
-                document.getElementById('imgInput').onchange = function (evt) {
-                    document.getElementById('imgResult').value = "Working...";
-                    var tgt = evt.target || window.event.srcElement,
-                        files = tgt.files;
-
-                    // FileReader support
-                    if (FileReader && files && files.length) {
-                        var fr = new FileReader();
-                        fr.onload = function () {
-
-                            var diff = resemble(document.getElementById("trueImage").src).compareTo(fr.result).ignoreAntialiasing().scaleToSameSize().onComplete(function (data) {
-                                if (data.misMatchPercentage < '40') {
-                                    console.log(data.misMatchPercentage);
-                                    document.getElementById('imgResult').style.background = "#DAFF80";
-                                    document.getElementById('imgResult').value = "Done!";
-                                } else {
-                                    console.log(data.misMatchPercentage);
-                                    document.getElementById('imgResult').value = "Missmatch";
-                                    document.getElementById('imgResult').style.background = "#CC6452";
-                                }
-                            });
-                        }
-                        fr.readAsDataURL(files[0]// Not supported
-                        );
-                    } else {
-                        // fallback -- perhaps submit the input to an iframe and temporarily store them on the server until the user's session ends.
-                    }
-                }
-
-                function checkImage() {}
-            </script>
-
         </div>
     </div>
 </div>

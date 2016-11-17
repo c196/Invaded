@@ -27,9 +27,7 @@ class InvadersController < ApplicationController
     #create new object with attributes of existing record
     @existing_invader.credibility = @existing_invader.credibility + 10
     write_invader(@existing_invader)
-    x = current_user.score
-    x = 0
-    current_user.score = x
+    current_user.score += 10
   end
 
 
@@ -49,6 +47,14 @@ class InvadersController < ApplicationController
 
   def found
     @invader = Invader.find(params[:id])
+    @temp_invader = TempInvader.new
+  end
+
+  def createTemp
+    @temp_invader = TempInvader.new(params[:location])
+    if @temp_invader.save
+      redirect_to play_hub_path, notice: 'Invader was successfully destroyed.'
+    end
   end
 
   # POST /invaders
@@ -105,4 +111,8 @@ class InvadersController < ApplicationController
     def invader_params
       params.require(:invader).permit(:name, :description, :hints, :location, :users_id, :accuracy, :credibility, :image, :username)
     end
+
+    def temp_invader_params
+      params.require(:temp_invader).permit(:location)
+end
 end

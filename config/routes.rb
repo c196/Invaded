@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/reduce_credibility/:id', to: 'invaders#reduce_credibility'
 
   resources :invaders
+  resources :temp_invaders
+
+  match '/createTemp',      to: 'invaders#createTemp',        via: 'post'
+
   get 'explore/map'
 
   get 'explore/map'
