@@ -1,2 +1,6 @@
-<h1>Leaderboard#show</h1>
-<p>Find me in app/views/leaderboard/show.html.erb</p>
+<% @users.each do |user| %>
+    <li>
+        <%= user.user_name %>
+        <%= user.score %>
+    </li>
+<% end %>
