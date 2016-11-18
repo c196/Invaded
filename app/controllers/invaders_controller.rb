@@ -82,7 +82,7 @@ class InvadersController < ApplicationController
     hash1 = Dhash.calculate(@invader.image.path)
     hash2 = Dhash.calculate(temp.image.path)
 
-    if Dhash.hamming(hash1, hash2) < 10
+    if Dhash.hamming(hash1, hash2) < 20
       $imageValid = true
     else
       $imageValid = false
