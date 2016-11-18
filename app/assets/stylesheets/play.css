@@ -11,8 +11,7 @@
 
 .hub .grid-icons li {
   width: 50vw;
-  border-bottom: 1px solid #535353;
-  border-right: 1px solid #535353;
+
   display: inline-block;
   height: 50vw;
 }
