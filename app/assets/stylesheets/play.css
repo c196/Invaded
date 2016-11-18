@@ -1,7 +1,7 @@
 .hub {
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .hub .grid-icons {
@@ -23,7 +23,7 @@
   width: 100%;
   display: table;
   text-align: center;
-  background-color: rgba(0,0,0,0.2);
+
 }
 
 .hub .grid-icons li .inner{
