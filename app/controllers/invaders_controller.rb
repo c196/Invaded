@@ -22,38 +22,70 @@ class InvadersController < ApplicationController
   def edit
   end
 
-  def upgrade_credibility
-    @existing_invader = Invader.find(params[:id])
-    #create new object with attributes of existing record
-    @existing_invader.credibility = @existing_invader.credibility + 10
-    write_invader(@existing_invader)
-    current_user.score += 10
-  end
-
-
-  def reduce_credibility
-    @existing_invader = Invader.find(params[:id])
-    @existing_invader.credibility = @existing_invader.credibility - 10
-    write_invader(@existing_invader)
-  end
-
-  def write_invader(b)
-    @invader = Invader.new(b.attributes)
-    b.destroy
-    @invader.save
-    redirect_to @invader
-
-  end
-
   def found
     @invader = Invader.find(params[:id])
     @temp_invader = TempInvader.new
   end
 
+  def result
+
+  end
+
+  def lost_invader
+    @invader = Invader.find(params[:id])
+    @invader.update_attributes(:credibility => @invader.credibility - 10)
+    @creator = User.find(@invader.users_id)
+    @creator.update_attributes(:credibility => + 1)
+    redirect_to invaders_result_path, notice: 'Invader Lost'
+  end
+
   def createTemp
-    @temp_invader = TempInvader.new(params[:location])
+    @temp_invader = TempInvader.new(temp_invader_params.merge!(userId: current_user.id))
     if @temp_invader.save
-      redirect_to play_hub_path, notice: 'Invader was successfully destroyed.'
+      verify_image(@temp_invader)
+      verify_location
+      if $locationValid == true
+          @invader = Invader.find(@temp_invader.invaderId)
+          @temp_invader.destroy
+          @user = current_user
+          @invader.update_attributes(:credibility => @invader.credibility + 10)
+          @user.update_attributes(:score => @user.score + 10)
+          @creator = User.find(@invader.users_id)
+          @creator.update_attributes(:score => @creator.score + 1, :credibility => + 1)
+          if $imageValid == true
+            redirect_to invaders_result_path, notice: 'Invasion Confirmed'
+          else
+            redirect_to invaders_result_path, notice: "Images don't match"
+          end
+      else
+          redirect_to invaders_result_path, notice: 'To far away'
+      end
+    end
+  end
+
+  def verify_location
+    invaderId = @temp_invader.invaderId
+    @invader = Invader.find(invaderId)
+    invaderLocation = @temp_invader.location.split(',').map(&:to_f)
+    currentLocation = @invader.location.split(',').map(&:to_f)
+    difference = invaderLocation[0] - currentLocation[0] + invaderLocation[1] - currentLocation[1]
+    if difference.abs <= 0.001
+      $locationValid = true
+    else
+      $locationValid = false
+    end
+  end
+
+  def verify_image(temp)
+    @invader = Invader.find(temp.invaderId)
+
+    hash1 = Dhash.calculate(@invader.image.path)
+    hash2 = Dhash.calculate(temp.image.path)
+
+    if Dhash.hamming(hash1, hash2) < 10
+      $imageValid = true
+    else
+      $imageValid = false
     end
   end
 
@@ -113,6 +145,6 @@ class InvadersController < ApplicationController
     end
 
     def temp_invader_params
-      params.require(:temp_invader).permit(:location)
-end
+      params.require(:temp_invader).permit(:location, :invaderId, :image)
+    end
 end

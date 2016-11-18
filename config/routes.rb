@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'leaderboard/show'
 
   get '/invaders/found/:id', to: 'invaders#found'
+  get '/invaders/result', to: 'invaders#result'
   get '/upgrade_credibility/:id', to: 'invaders#upgrade_credibility'
-  get '/reduce_credibility/:id', to: 'invaders#reduce_credibility'
+  get '/lost_invader/:id', to: 'invaders#lost_invader'
 
   resources :invaders
-  resources :temp_invaders
 
-  match '/createTemp',      to: 'invaders#createTemp',        via: 'post'
+  match '/temp_invaders',      to: 'invaders#createTemp',        via: 'post'
 
   get 'explore/map'
 

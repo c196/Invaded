@@ -7,7 +7,7 @@
 
     <th>Username</th>
     <th>Score</th>
-<% @users.each do |user| %>
+<% @users.limit(40).each do |user| %>
 
 <tr>
       <td>  <%= user.user_name %></td>
@@ -16,4 +16,5 @@
 
 <% end %>
 </table>
+<br><br>
 </div>

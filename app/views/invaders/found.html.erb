@@ -8,30 +8,21 @@
         <div class="centerText">
             <h2>Validate your Invader</h2>
             <br>
-            <!-- <%= form_for @temp_invader, html: { multipart: true } do |f| %>
+            <%= form_for @temp_invader, html: { multipart: true } do |f| %>
+            <input type="button" class="formBtn" id="btnLocation" value="Get Location"  onclick="getLocation()">
+            <%= f.text_field :location,:id => "locationField", :class => 'hidden' %>
+            <input type="text" id="locationAccuracy" hidden>
+            <%= f.text_field :invaderId, :value => @invader.id, :class => 'hidden'  %>
             <div class="field">
-                <input type="button" class="formBtn" id="btnLocation" value="Get Location" onclick="valLocation()">
-                <label id="invaderPos" hidden><%= @invader.location %></label>
+              <div class="imgBtnMask">
+              <input type="button" class="formBtn" value="Upload Image" id="imgResult">
+              <%= f.file_field :image, :id => 'imgInput', :onchange => "document.getElementById('imgResult').style.background = '#DAFF80'", :class => 'formBtn imgBtn'%>
             </div>
+          </div>
 
-            <%= f.text_field :location %>
-            <%= f.submit %>
+            <%= f.submit "Submit", :class => 'formBtn submit' %>
 
-            <div class="field">
-                <div class="imgBtnMask">
-                    <input type="button" class="formBtn" value="Upload Image" id="imgResult">
-                    <input type="file" id="imgInput" class="formBtn imgBtn">
-                    <%= link_to "Submit", { :controller =>
-                               'invaders', :action =>'upgrade_credibility',
-                               :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
 
-                </div>
-            </div>
-            <% end %> -->
-
-            <%= form_tag({controller: "invaders", action: "createTemp"}, method: "post") do %>
-            <%= text_field_tag(:location) %>
-            <%= submit_tag("Search") %>
             <% end %>
             <br><br>
         </div>

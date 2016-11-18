@@ -3,30 +3,21 @@
 <div class="invaderImageFrame overFlowHidden"> <%= image_tag @invader.image.url(:large), :class => "invaderImage" %> </div>
 
 <div class="invaderFrame">
-
-
     <h1>
   <%= @invader.name %>
 </h1>
 <br>
 <br>
-
   <h2>Description:</h2>
   <p>
   <%= @invader.description %>
   </p>
   <br>
-
-
-
   <h2>Hints:</h2>
   <p>
   <%= @invader.hints %>
   </p>
   <br>
-
-
-
   <h2>Explorer:</h2>
   <p>
   <%= @invader.username %>
@@ -37,14 +28,8 @@
   <p>
   <%= @invader.credibility %>
   </p>
-
-
 <div class="txtAlignCenter">
-
 <br><br>
-
-
-
 <% if @invader.users_id == current_user.id  %>
  <%= link_to 'Edit', edit_invader_path(@invader), :class => "formBtn" %>
 
@@ -57,7 +42,7 @@
                        :id=>"#{@invader.id}" }, :class => "formBtn submit" %>
 
                        <%= link_to "Unable to find", { :controller =>
-                                  'invaders', :action =>'reduce_credibility',
+                                  'invaders', :action =>'lost_invader',
                                   :id=>"#{@invader.id}" }, :class => "formBtn delete" %>
 
 
