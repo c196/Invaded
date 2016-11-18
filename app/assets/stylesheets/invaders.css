@@ -32,6 +32,7 @@
 
 .invaderFrame {
   padding: 40px 20px 20px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .formFrame {
