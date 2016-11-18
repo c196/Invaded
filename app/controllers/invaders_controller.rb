@@ -45,14 +45,14 @@ class InvadersController < ApplicationController
       verify_image(@temp_invader)
       verify_location
       if $locationValid == true
-          @invader = Invader.find(@temp_invader.invaderId)
-          @temp_invader.destroy
-          @user = current_user
-          @invader.update_attributes(:credibility => @invader.credibility + 10)
-          @user.update_attributes(:score => @user.score + 10)
-          @creator = User.find(@invader.users_id)
-          @creator.update_attributes(:score => @creator.score + 1, :credibility => + 1)
           if $imageValid == true
+            @invader = Invader.find(@temp_invader.invaderId)
+            @temp_invader.destroy
+            @user = current_user
+            @invader.update_attributes(:credibility => @invader.credibility + 10)
+            @user.update_attributes(:score => @user.score + 10)
+            @creator = User.find(@invader.users_id)
+            @creator.update_attributes(:score => @creator.score + 1, :credibility => + 1)
             redirect_to invaders_result_path, notice: 'Invasion Confirmed'
           else
             redirect_to invaders_result_path, notice: "Images don't match"
