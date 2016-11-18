@@ -31,7 +31,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to edit_user_registration_path do %>
+          <%= link_to play_tutorial_path do %>
           <div class="outer">
             <div class="inner">
               <i class="material-icons">school</i>
@@ -51,7 +51,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to edit_user_registration_path do %>
+          <%= link_to play_settings_path do %>
           <div class="outer">
             <div class="inner">
               <i class="material-icons">settings</i>
@@ -63,3 +63,11 @@
 
     </ul>
 </div>
+
+<script>
+window.addEventListener('beforeinstallprompt', function(e) {
+ console.log('beforeinstallprompt Event fired');
+ e.preventDefault();
+ return false;
+});
+</script>

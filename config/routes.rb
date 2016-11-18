@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'authenticate/index'
 
   get 'play/hub'
+  get 'play/settings'
+  get 'play/tutorial'
   get 'invaders/map'
   get 'invaders/new'
 
