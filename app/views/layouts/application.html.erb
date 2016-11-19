@@ -17,6 +17,18 @@
 <link rel="shortcut icon" href="images/apple-icon.png" />
 </head>
 <body class="notranslate">
+  <script>
+  function supported() {
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+  if (isChrome || isSafari){
+  }
+  else {
+  location.replace("https://invaded.world");
+}
+}
+  </script>
 
   <% if user_signed_in? %>
 <nav>
@@ -39,6 +51,10 @@
   </div>
 </nav>
 <% end %>
+
+<script type="text/javascript">
+        window.onload = supported;
+        </script>
 
 
 <%= yield %>

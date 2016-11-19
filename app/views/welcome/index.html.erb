@@ -15,7 +15,18 @@
 								<footer>
 										<h3>&downarrow; Mehr erfahren &downarrow; </h3>
 									<ul class="actions">
-										<li><a href="/play/hub" turbolinks="false" class="button">Spiele Jetzt</a></li>
+										<script>
+										function supported() {
+										var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+										var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+										if (isChrome || isSafari){
+											location.replace("/play/hub");
+										}
+										else alert("Sorry but Invaded.World is not supported by your Browser");
+									}
+										</script>
+										<li><a onclick="supported()" class="button">Spiele Jetzt</a></li>
 									</ul>
 
 								</footer>
