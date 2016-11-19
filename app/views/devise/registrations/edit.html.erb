@@ -1,52 +1,52 @@
-
 <div class="formFrame">
-<div class="centerContent">
-  <div class="centered">
-    <div class="formBox">
-      <div class="centerText">
+    <div class="centerContent">
+        <div class="centered">
+            <div class="formBox">
+                <div class="centerText">
 
+                    <h2>Edit
+                        <%= resource_name.to_s.humanize %></h2>
+                </div>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= devise_error_messages! %>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-</div>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+                <div class="field">
 
-  <div class="field">
+                    <%= f.email_field :email, autofocus: true , :class => 'formInput' %>
+                </div>
 
-    <%= f.email_field :email, autofocus: true , :class => 'formInput' %>
-  </div>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for:
+                    <%= resource.unconfirmed_email %></div>
+                <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                <div class="field">
 
-  <div class="field">
+                    <%= f.password_field :password, autocomplete: "off", :class => 'formInput',placeholder: "New Password" %>
 
-    <%= f.password_field :password, autocomplete: "off", :class => 'formInput',placeholder: "New Password" %>
+                </div>
 
-  </div>
+                <div class="field">
 
-  <div class="field">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" , :class => 'formInput'%>
+                </div>
 
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" , :class => 'formInput'%>
-  </div>
+                <div class="field">
 
-  <div class="field">
+                    <%= f.password_field :current_password, autocomplete: "off",:class => 'formInput', placeholder: "Current Password" %>
+                </div>
+                <div class="centerText">
+                    <div class="actions">
+                        <%= f.submit "Update", :class => 'formBtn' %>
 
-    <%= f.password_field :current_password, autocomplete: "off",:class => 'formInput', placeholder: "Current Password" %>
-  </div>
-  <div class="centerText">
-  <div class="actions">
-    <%= f.submit "Update", :class => 'formBtn' %>
-    <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'formBtn delete'%>
-  </div>
-</div>
-  <br><br>
-<% end %>
+                    </div>
 
+                </div>
+                <br><br>
+                <% end %>
+                <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'formBtn delete'%>
 
-
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </div>
