@@ -104,7 +104,7 @@ body {
 .centered {
   display: table-cell;
   vertical-align: middle;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .centerText {

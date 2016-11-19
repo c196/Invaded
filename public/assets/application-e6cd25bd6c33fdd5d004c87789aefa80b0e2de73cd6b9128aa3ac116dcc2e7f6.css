@@ -232,7 +232,7 @@ nav .navRight {
 
 .formFrame {
   min-height: calc(100vh - 100px);
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .formBox {
