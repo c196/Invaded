@@ -19,14 +19,18 @@
 <body class="notranslate">
   <script>
   function supported() {
-  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+  var currentLocation = window.location;
+  if (currentLocation != "https://invaded.world") {
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-  if (isChrome || isSafari){
+    if (isChrome || isSafari){
+    }
+    else {
+    location.replace("https://invaded.world");
   }
-  else {
-  location.replace("https://invaded.world");
-}
+  }
+
 }
   </script>
 
