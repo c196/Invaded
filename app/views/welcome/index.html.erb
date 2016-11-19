@@ -20,7 +20,7 @@
 										var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 										var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-										if (isChrome || isSafari){
+										if (isChrome || isSafari || navigator.userAgent.indexOf('AppleWebKit') != -1){
 											location.replace("/play/hub");
 										}
 										else alert("Sorry but Invaded.World is not supported by your Browser");
