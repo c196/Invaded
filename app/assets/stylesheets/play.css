@@ -44,3 +44,27 @@
 a {
   text-decoration: none;
 }
+
+.tutorial {
+  min-height: 100vh;
+  width: calc(100% - 0px);
+  padding: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+ol {
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+ol li {
+  margin: 10px 5px 10px 5px;
+}
+
+.tutorialBlock {
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  color: black;
+  padding: 10px;
+}
