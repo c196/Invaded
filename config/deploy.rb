@@ -2,7 +2,7 @@
 lock '3.6.1'
 
 set :application, 'Invaded'
-set :repo_url, 'git@github.com:c196/Invaded.git'
+set :repo_url, 'git@github.com:lucasperception/Invaded.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
